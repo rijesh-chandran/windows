@@ -1,0 +1,33 @@
+1. Download Windows 11 Pro ISO and create 2 Virtual Machines name them as win-server-1 and win-server-2
+
+https://www.microsoft.com/software-download/windows11
+
+2. Add following in "c:\windows\system32\drivers\etc\hosts"
+
+# Public
+192.168.1.90   win-server-1
+192.168.1.91   win-server-2
+# Private
+10.0.0.1  win-server-1-priv
+10.0.0.2  win-server-2-priv
+#Virtual       
+192.168.1.92  win-server-1-vip
+192.168.1.93  win-server-2-vip
+
+#SCAN Name
+192.168.1.94 scan-win-rac.virtualbox.com
+192.168.1.95 scan-win-rac.virtualbox.com
+192.168.1.96 scan-win-rac.virtualboxc.om
+
+3. Start following service on both nodes:
+
+Remote Registry 
+
+4. Stop windows firewall (defender) on both nodes
+
+5. Try performing following to ensure passwordless connectivity is working:
+
+net use \\win-server-1\c$
+net use \\win-server-2\c$
+
+6. 
